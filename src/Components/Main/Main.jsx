@@ -1,18 +1,19 @@
 import React from "react";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes} from "react-router-dom";
 import CategoryList from "../../pages/CategoryList/CategoryList";
-import Products from "../../pages/Products/Products";
-import Product from "../../pages/Product/Product";
+import CategoryProducts from "../../pages/CategoryProducts/CategoryProducts";
 import NotFound from "../../pages/NotFound/NotFound";
+import SingleItem from "../../pages/SingleItem/SingleItem";
+
+import "./Main.css";
 
 function Main() {
   return (
     <main className="Main">
-      Main
       <Routes>
-        <Route path="/category" element={<CategoryList />} />
-        <Route path="category/jewelery" element={<Products />} />
-        <Route path="/item/3245" element={<Product />} />
+        <Route path="/" element={<CategoryList />} />
+        <Route path="/category/:categoryName" element={<CategoryProducts />} />
+        <Route path="/item/:itemId" element={<SingleItem />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </main>

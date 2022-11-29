@@ -1,0 +1,49 @@
+.itemContainer {
+    height: 82vh;
+    width: 33vw;
+    margin: 0vw 3.5vw 0vw 3.5vw;
+    border-radius: 20px;
+    box-shadow: 0px 0px 30px rgb(132, 132, 132);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.divItemImg {
+    display: inline-block;
+    max-height: 40%;
+    min-height: 40%;
+    width: 95%;
+    margin: 5%;
+}
+
+.itemImg {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+}
+
+.itemTitle {
+    max-height: 5%;
+    min-height: 5%;
+    width: 95%;
+    
+
+}
+
+.itemDescription {
+    max-height: 15.3%;
+    min-height: 15.3%;
+    width: 95%;
+    margin: 2%;
+    overflow: scroll;
+}
+
+.itemPrice {
+    max-height: 4%;
+    min-height: 4%;
+    width: 95%;
+    margin: 0% 0% 0% 0%;
+}

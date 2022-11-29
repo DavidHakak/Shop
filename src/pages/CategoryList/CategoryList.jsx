@@ -1,24 +1,35 @@
 import React, { useContext, useEffect } from "react";
 import MainContext from "../../context/MainContext";
+import axios from "axios";
+import "./CategoryList.css";
+import { Link } from "react-router-dom";
 
 function CategoryList() {
-
   const { main } = useContext(MainContext);
-  const {categoryList, setCategoryList} = main;
-  
+  const { categoryList, setCategoryList } = main;
 
   useEffect(() => {
-    fetch("https://fakestoreapi.com/products/categories")
-      .then((res) => res.json())
-      .then((json) => setCategoryList(json));
-  }, []);
+    const getCategoryList = async () => {
+      const { data } = await axios.get(
+        "https://fakestoreapi.com/products/categories"
+      );
+
+      setCategoryList(data);
+    };
+
+    getCategoryList();
+    
+  }, [setCategoryList]);
 
   return (
     <div className="CategoryList">
-      <ul>
-        {categoryList.map(c=>console.log(c))
-      }
-      </ul>
+      {categoryList
+        ? categoryList.map((category) => (
+            <Link to={"/category/" + category}>
+              <div className="category">{category}</div>
+            </Link>
+          ))
+        : ""}
     </div>
   );
 }

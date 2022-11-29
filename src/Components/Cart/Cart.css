@@ -1,0 +1,31 @@
+.Cart {
+    height: 93vh;
+    width: 17vw;
+    margin-top: 7vh;
+    background: rgb(246, 170, 94);
+    border-right: 1px solid rgba(131, 131, 131, 0.59);
+    position: fixed;
+    overflow: scroll;
+}
+
+.footerCart{
+    min-height: 10vh;
+    max-height: 10vh;
+    width: 17vw;
+    background: darkolivegreen;
+    display: flex;
+    justify-content:space-evenly;
+    align-items: center;
+    flex-direction: column;
+    position: fixed;
+    z-index: 100;
+    top:92vh 
+}
+
+.totalItems{
+font-size:  1.2rem;
+}
+
+.totalPayment{
+    font-size:  1.2rem;
+}

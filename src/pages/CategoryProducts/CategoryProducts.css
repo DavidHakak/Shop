@@ -1,7 +1,7 @@
-.Main {
+.CategoryProducts {
     min-height: 93vh;
-    margin: 7vh 0vw 0vw 17vw;
+    max-width: 83vw;
     display: flex;
-    align-items: center;
+    flex-wrap: wrap;
     justify-content: center;
 }

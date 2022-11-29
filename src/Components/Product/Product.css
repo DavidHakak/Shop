@@ -1,0 +1,36 @@
+.Product {
+    height: 35vh;
+    width: 12vw;
+    margin: 4vw 3.5vw 0vw 3.5vw ;
+   box-shadow: 0px 0px 20px gray;
+   border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.divProductImg {
+    display: inline-block;
+    min-height: 55%;
+    width: 95%;
+    margin: 5%;
+}
+
+.productImg {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+}
+
+.productPrice {
+    margin: 2%;
+    height: 10%;
+    width: 95%;
+}
+
+.productTitle {
+    margin: 2%;
+    height: 40%;
+    width: 95%;
+}
