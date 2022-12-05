@@ -1,55 +1,64 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
+
 import MainContext from "../../context/MainContext";
 import "./AddToCart.css";
 
-function AddToCart({ productId }) {
+function AddToCart({ product }) {
   const { cart } = useContext(MainContext);
-  const { productListInCart } = cart;
 
-  const onChangeTheProductInCart = (action) => {
-    if (action === "minus") {
-      productListInCart[productId].inCart--;
-    } else if (action === "plus") productListInCart[productId].inCart++;
+  const { productListInCart, setProductListInCart } = cart;
+
+  const isInCart = productListInCart.findIndex(
+    (item) => item.id === product.id
+  );
+
+  const removedInCart = () => {
+    if (productListInCart[isInCart].inCart > 0)
+      setProductListInCart(productListInCart, {
+        ...productListInCart[isInCart].inCart--,
+      });
   };
 
-  if (productListInCart[Number(productId)]) {
-    if (productListInCart[productId].inCart > 0) {
-      return (
-        <div className="continerProductInTheCart">
-          <button
-            className="buttonPlus"
-            onClick={() => {
-              onChangeTheProductInCart("minus");
-            }}
-          >
-            -
-          </button>
-          <div className="productInTheCart">
-            {productListInCart[Number(productId)].inCart}
-          </div>
-          <button
-            className="buttonMinus"
-            onClick={() => {
-              onChangeTheProductInCart("plus");
-            }}
-          >
-            +
-          </button>
-        </div>
-      );
-    }
-  }
+  const addingInCart = () => {
+    setProductListInCart(productListInCart, {
+      ...productListInCart[isInCart].inCart++,
+    });
+  };
 
-  return (
-    <div
-      className="productNotInTheCart"
-      onClick={() => {
-        onChangeTheProductInCart("plus");
-      }}
-    >
-      Add to cart
-    </div>
-  );
+  const createObjectItemInListCart = () => {
+    setProductListInCart((oldList) => [
+      ...oldList,
+      {
+        id: product.id,
+        img: product.image,
+        title: product.title,
+        price: product.price,
+        inCart: 1,
+      },
+    ]);
+  };
+
+  if (isInCart !== -1) {
+    return (
+      <div className="continerProductInTheCart">
+        <button className="buttonPlus" onClick={addingInCart}>
+          +
+        </button>
+        <div className="productInTheCart">
+          {productListInCart[isInCart].inCart}
+        </div>
+        <button className="buttonMinus" onClick={removedInCart}>
+          -
+        </button>
+      </div>
+    );
+  } else {
+    return (
+      <div className="addToCart" onClick={createObjectItemInListCart}>
+        Add to cart
+      </div>
+    );
+  }
 }
 
 export default AddToCart;

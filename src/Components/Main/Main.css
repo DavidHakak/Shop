@@ -2,6 +2,6 @@
     min-height: 93vh;
     margin: 7vh 0vw 0vw 17vw;
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-content: flex-start;
 }

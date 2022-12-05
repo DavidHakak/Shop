@@ -1,6 +1,5 @@
 .CategoryProducts {
     min-height: 93vh;
-    max-width: 83vw;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;

@@ -24,12 +24,13 @@ function CategoryList() {
   return (
     <div className="CategoryList">
       {categoryList
-        ? categoryList.map((category) => (
-            <Link to={"/category/" + category}>
+        ? categoryList.map((category,i) => (
+
+            <Link key={i} to={"/category/" + category}>
               <div className="category">{category}</div>
             </Link>
           ))
-        : ""}
+        : "loading"}
     </div>
   );
 }

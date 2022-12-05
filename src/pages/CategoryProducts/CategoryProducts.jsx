@@ -17,7 +17,7 @@ function Products() {
       const { data } = await axios.get(
         "https://fakestoreapi.com/products/category/" + categoryName
       );
-      console.log(data);
+
       setProductsByCategory(data);
     };
     getCategoryProducts();
@@ -27,8 +27,8 @@ function Products() {
     <div className="CategoryProducts">
       <div></div>
       {categoryName
-        ? productsByCategory.map((product) => (
-            <Link to={"/item/" + product.id}>
+        ? productsByCategory.map((product,i) => (
+            <Link key={i} to={"/item/" + product.id}>
               <Product product={product} key={product.id} />
             </Link>
           ))

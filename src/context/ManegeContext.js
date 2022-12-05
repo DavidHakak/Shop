@@ -8,6 +8,7 @@ export const ContextProvider = ({ children }) => {
     const [categoryList, setCategoryList] = useState([]);
     const [productsByCategory, setProductsByCategory] = useState([]);
     const [item, setItem] = useState('');
+
     //Cart state
     const [productListInCart, setProductListInCart] = useState([])
     return (
